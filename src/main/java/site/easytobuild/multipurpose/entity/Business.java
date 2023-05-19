@@ -17,6 +17,10 @@ public class Business {
     @Column(name = "business_type")
     private String businessType;
 
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable=false)
+    private Customer customer;
+
     public Business() {
 
     }
@@ -48,5 +52,13 @@ public class Business {
 
     public void setBusinessType(String businessType) {
         this.businessType = businessType;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

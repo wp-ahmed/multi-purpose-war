@@ -2,6 +2,8 @@ package site.easytobuild.multipurpose.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -25,6 +27,9 @@ public class Customer {
 
     @Column(name = "customer_pass")
     private String password;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Business> businesses;
 
     public Customer() {
 
@@ -88,5 +93,17 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Business> getBusinesses() {
+        return businesses;
+    }
+
+    public void addBusinesses(Business business) {
+        this.businesses.add(business);
+    }
+
+    public void removeBusiness(Business business) {
+        this.businesses.remove(business);
     }
 }

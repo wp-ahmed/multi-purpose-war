@@ -12,16 +12,15 @@ import site.easytobuild.multipurpose.service.CustomerService;
 
 @Controller
 public class RegisterController {
-
     @Autowired
     CustomerService customerService;
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public RegisterController(CustomerService customerService, PasswordEncoder passwordEncoder) {
-        this.customerService = customerService;
-        this.passwordEncoder = passwordEncoder;
-    }
+//    public RegisterController(CustomerService customerService, PasswordEncoder passwordEncoder) {
+//        this.customerService = customerService;
+//        this.passwordEncoder = passwordEncoder;
+//    }
 
     @GetMapping("/register")
     public String registerCustomer(Model model){
@@ -35,6 +34,8 @@ public class RegisterController {
         String hashPassword = passwordEncoder.encode(customer.getPassword());
         customer.setPassword(hashPassword);
         customerService.save(customer);
+
         return "redirect:/login";
     }
+
 }

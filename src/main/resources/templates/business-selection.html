@@ -29,18 +29,33 @@
             </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <form action="#"  method="post" >
-                        <input type="hidden" value="crm">
+                    <form th:action="@{/save-business}" method="post" th:object="${business}">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Business Name</label>
+                            <input type="text" name="businessName"  th:field="*{businessName}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your business name">
+                        </div>
+                        <input type="hidden" name="businessType" id="businessType" th:value="crm">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <form action="#"  method="post" >
-                        <input type="hidden" value="ecommerce">
+                    <form th:action="@{/save-business}" method="post" th:object="${business}">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Business Name</label>
+                            <input type="text" name="businessName"  th:field="*{businessName}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your business name">
+                        </div>
+                        <input type="hidden" name="businessType" id="businessType" th:value="ecommerce">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <form action="#"  method="post" >
-                        <input type="hidden" value="landing">
+                    <form th:action="@{/save-business}" method="post" th:object="${business}">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Business Name</label>
+                            <input type="text" name="businessName"  th:field="*{businessName}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your business name">
+                        </div>
+                        <input type="hidden" name="businessType" id="businessType" th:value="landing">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
